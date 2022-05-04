@@ -1,0 +1,20 @@
+he basic usage is as follows:
+
+  $ steghide embed -cf picture.jpg -ef secret.txt
+  Enter passphrase:
+  Re-Enter passphrase:
+  embedding "secret.txt" in "picture.jpg"... done
+
+This command will embed the file secret.txt in the cover file picture.jpg.
+
+After you have embedded your secret data as shown above you can send the file
+picture.jpg to the person who should receive the secret message. The receiver
+has to use steghide in the following way:
+
+  $ steghide extract -sf picture.jpg
+  Enter passphrase:
+  wrote extracted data to "secret.txt".
+
+If the supplied passphrase is correct, the contents of the original file
+secret.txt will be extracted from the stego file picture.jpg and saved
+in the current directory.
